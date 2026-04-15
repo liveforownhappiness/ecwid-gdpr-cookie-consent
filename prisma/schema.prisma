@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Store {
+  id          String       @id @default(cuid())
+  storeId     String       @unique @map("store_id")
+  accessToken String       @map("access_token")
+  plan        String       @default("free")   // free | pro
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
+
+  config BannerConfig?
+
+  @@map("gdpr_stores")
+}
+
+model BannerConfig {
+  id              String   @id @default(cuid())
+  storeId         String   @unique @map("store_id")
+  store           Store    @relation(fields: [storeId], references: [storeId], onDelete: Cascade)
+
+  // 스타일
+  bgColor         String   @default("#1f2937") @map("bg_color")
+  textColor       String   @default("#f9fafb") @map("text_color")
+  accentColor     String   @default("#3b82f6") @map("accent_color")
+  position        String   @default("bottom")  // bottom | top
+
+  // 텍스트 (기본 영어, Pro는 다국어)
+  messageEn       String   @default("We use cookies to improve your experience. By continuing, you agree to our cookie policy.") @map("message_en")
+  acceptLabel     String   @default("Accept") @map("accept_label")
+  declineLabel    String   @default("Decline") @map("decline_label")
+  policyUrl       String   @default("") @map("policy_url")
+
+  // 동작
+  showDecline     Boolean  @default(true) @map("show_decline")
+  blockScripts    Boolean  @default(false) @map("block_scripts")  // Pro only
+  enabled         Boolean  @default(true)
+
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@map("gdpr_banner_configs")
+}
