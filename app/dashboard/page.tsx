@@ -283,7 +283,7 @@ export default function Dashboard() {
           <li>Custom cookie expiry duration</li>
         </ul>
         <a
-          href={`https://50×10.lemonsqueezy.com/checkout/buy/a828b8a0-cf9f-40ee-9d63-575d18133180?checkout[custom][store_id]=${storeId}`}
+          href={`https://50x10.lemonsqueezy.com/checkout/buy/48ec2232-768d-45ae-ab29-a5a0f1e18801?checkout[custom][store_id]=${storeId}`}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block mt-2 px-4 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700"
