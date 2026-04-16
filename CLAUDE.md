@@ -39,6 +39,19 @@
 
 ---
 
+## LemonSqueezy (결제) — Live mode ✅
+
+| 항목 | 값 |
+|---|---|
+| 상품명 | Ecwid GDPR Cookie Pro |
+| 가격 | $3.99/월 |
+| Variant ID | **1536992** |
+| Checkout URL | `https://50x10.lemonsqueezy.com/checkout/buy/48ec2232-768d-45ae-ab29-a5a0f1e18801` |
+| Webhook URL | `https://ecwid-gdpr-cookie-consent.vercel.app/api/lemonsqueezy` |
+| WEBHOOK_SECRET | Vercel Production 설정 완료 (2026-04-16) |
+
+---
+
 ## 개발 주의사항
 
 - git commit 시 `liveforownhappiness@gmail.com` 계정 사용
